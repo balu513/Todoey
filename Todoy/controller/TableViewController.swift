@@ -15,7 +15,7 @@ class TableViewController: UITableViewController {
 //   var listItems : [Item] = [Item(item: "Apple"),Item(item: "Grape"),Item(item: "Mangoo"),Item(item: "Banana"),Item(item: "Papay"),Item(item: "Mosambi"),Item(item: "Sugar cane"),Item(item: "Jack fruit"),Item(item: "Kiwi"),Item(item: "Date shake"),Item(item: "Pista"),Item(item: "Fruit Mix"),Item(item: "Lemon"),Item(item: "Watermilon"),Item(item: "Clustered Apple"),Item(item: "Goa")]
     
     
-    var listItems = [Item]()
+    var listItems = [OldItem]()
     
     let KEY : String = "userdefault_key"
     
@@ -63,7 +63,7 @@ class TableViewController: UITableViewController {
         let action = UIAlertAction(title: "Add", style: .default) { (uiAlertAction) in
             
             
-            self.listItems.append(Item(item: textField.text!))
+            self.listItems.append(OldItem(item: textField.text!))
             
            // self.defaults.set(self.listItemsInUSerDefaults, forKey: self.KEY)
             
@@ -94,7 +94,7 @@ class TableViewController: UITableViewController {
     func loadItems() {
         do{
             let data = try? Data(contentsOf: fileDataPath!)
-            listItems = try PropertyListDecoder().decode([Item].self, from: data!)
+            listItems = try PropertyListDecoder().decode([OldItem].self, from: data!)
         }catch{
             print("Error in decode: \(error)")
         }
