@@ -93,8 +93,9 @@ class TableViewController: UITableViewController {
     
     func loadItems() {
         do{
-            let data = try? Data(contentsOf: fileDataPath!)
-            listItems = try PropertyListDecoder().decode([OldItem].self, from: data!)
+            if let data = try? Data(contentsOf: fileDataPath!){
+            listItems = try PropertyListDecoder().decode([OldItem].self, from: data)
+            }
         }catch{
             print("Error in decode: \(error)")
         }
