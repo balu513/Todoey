@@ -22,6 +22,7 @@
 		9BE309A42235820F00D6E2DA /* Branch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE309A32235820F00D6E2DA /* Branch.swift */; };
 		9BE309A6223582D900D6E2DA /* Subject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE309A5223582D900D6E2DA /* Subject.swift */; };
 		9BE309A8223590E700D6E2DA /* SubjectsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE309A7223590E700D6E2DA /* SubjectsTableViewController.swift */; };
+		9BE309AA2236D0A800D6E2DA /* SwipebleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE309A92236D0A800D6E2DA /* SwipebleTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +44,7 @@
 		9BE309A32235820F00D6E2DA /* Branch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Branch.swift; sourceTree = "<group>"; };
 		9BE309A5223582D900D6E2DA /* Subject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subject.swift; sourceTree = "<group>"; };
 		9BE309A7223590E700D6E2DA /* SubjectsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectsTableViewController.swift; sourceTree = "<group>"; };
+		9BE309A92236D0A800D6E2DA /* SwipebleTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipebleTableViewController.swift; sourceTree = "<group>"; };
 		B95DF89E850C6AA222298752 /* Pods-Todoy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Todoy.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Todoy/Pods-Todoy.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -117,6 +119,7 @@
 				9B09F6982234F1E800C14FC7 /* HomeViewControler.swift */,
 				9B09F69A223511E600C14FC7 /* BranchTableViewController.swift */,
 				9BE309A7223590E700D6E2DA /* SubjectsTableViewController.swift */,
+				9BE309A92236D0A800D6E2DA /* SwipebleTableViewController.swift */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -273,6 +276,7 @@
 				9BE309A6223582D900D6E2DA /* Subject.swift in Sources */,
 				9B09F6992234F1E800C14FC7 /* HomeViewControler.swift in Sources */,
 				9B7AEA962225872D00789C71 /* CategoryTableViewController.swift in Sources */,
+				9BE309AA2236D0A800D6E2DA /* SwipebleTableViewController.swift in Sources */,
 				9B09F69B223511E600C14FC7 /* BranchTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

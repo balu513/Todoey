@@ -3,7 +3,7 @@ import UIKit
 import SwipeCellKit
 import RealmSwift
 
-class BranchTableViewController: UITableViewController {
+class BranchTableViewController: SwipebleTableViewController {
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     var branches : Results<Branch>!
@@ -13,6 +13,7 @@ class BranchTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tableView.rowHeight = 80
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(addTapped))
         loadBranches()
         
@@ -74,7 +75,9 @@ class BranchTableViewController: UITableViewController {
         return branches.count
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "branchCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "branchCell", for: indexPath) as! SwipeTableViewCell
+        cell.delegate = self
+        
         cell.textLabel?.text = branches[indexPath.row].name
         return cell
     }
@@ -90,5 +93,9 @@ class BranchTableViewController: UITableViewController {
         if let indexpath = tableView.indexPathForSelectedRow{
             destinationVC.selectedBranch = branches[indexpath.row]
         }
+    }
+    override func swipedItem(pos: Int) {
+        super.swipedItem(pos: pos)
+        print("Swiped item at pos in child class: \(pos)")
     }
 }

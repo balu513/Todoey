@@ -10,7 +10,7 @@ import UIKit
 import RealmSwift
 import SwipeCellKit
 
-class SubjectsTableViewController: UITableViewController, SwipeTableViewCellDelegate {
+class SubjectsTableViewController: SwipebleTableViewController {
     
     var realm = try! Realm()
     
@@ -101,12 +101,11 @@ class SubjectsTableViewController: UITableViewController, SwipeTableViewCellDele
         tableView.deselectRow(at: indexPath, animated: true)
         tableView.reloadData()
     }
-    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
-        guard orientation == .right else { return nil }
-        
-        let deleteAction = SwipeAction(style: .destructive, title: "Delete") { action, indexPath in
-            if let item = self.subjects?[indexPath.row]
-            {
+    override func swipedItem(pos: Int) {
+        super.swipedItem(pos: pos)
+        print("Swiped item at pos in child class: \(pos)")
+        if let item = self.subjects?[pos]
+        {
             do{
                 try self.realm.write {
                     self.realm.delete(item)
@@ -114,20 +113,7 @@ class SubjectsTableViewController: UITableViewController, SwipeTableViewCellDele
             }catch{
                 print("Error in deleting Subject:  \(error)")
             }
-                
-        }
             
         }
-        
-        // customize the action appearance
-        deleteAction.image = UIImage(named: "delete-icon")
-        
-        return [deleteAction]
-    }
-    func tableView(_ tableView: UITableView, editActionsOptionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> SwipeOptions {
-        var options = SwipeOptions()
-        options.expansionStyle = .destructive
-        options.transitionStyle = .border
-        return options
     }
 }
