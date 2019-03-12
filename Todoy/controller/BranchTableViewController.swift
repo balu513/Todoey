@@ -2,6 +2,7 @@
 import UIKit
 import SwipeCellKit
 import RealmSwift
+import ChameleonFramework
 
 class BranchTableViewController: SwipebleTableViewController {
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
@@ -14,8 +15,11 @@ class BranchTableViewController: SwipebleTableViewController {
         super.viewDidLoad()
         
         tableView.rowHeight = 80
+        tableView.separatorStyle = .none
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(addTapped))
         loadBranches()
+        
+    
         
         // Do any additional setup after loading the view.
     }
@@ -79,6 +83,7 @@ class BranchTableViewController: SwipebleTableViewController {
         cell.delegate = self
         
         cell.textLabel?.text = branches[indexPath.row].name
+        cell.backgroundColor = UIColor.randomFlat
         return cell
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
